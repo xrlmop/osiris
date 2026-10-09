@@ -23,16 +23,12 @@ jobs:
       with:
         channel: 'stable'
 
-    - name: Install dependencies
+    - name: Install and Build
       run: |
         flutter config --enable-ios
         flutter create --platforms=ios .
         flutter pub get
-        cd ios
-        pod install
-
-    - name: Build IPA
-      run: flutter build ipa --no-codesign
+        flutter build ipa --no-codesign
 
     - name: Upload IPA Artifact
       uses: actions/upload-artifact@v4
