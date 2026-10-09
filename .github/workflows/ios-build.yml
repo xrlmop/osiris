@@ -25,6 +25,8 @@ jobs:
 
     - name: Install dependencies
       run: |
+        flutter config --enable-ios
+        flutter create --platforms=ios .
         flutter pub get
         cd ios
         pod install
